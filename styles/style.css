@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Quicksand';
+    src: '../fonts/quicksand-variablefont_wght.woff2' format('woff2-variations');
+    font-weight: 300 700;
+}
+
+body {
+    font-family: "Quicksand", Arial, Helvetica, sans-serif;
+}
