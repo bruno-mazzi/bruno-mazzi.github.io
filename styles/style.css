@@ -1,9 +1,74 @@
 @font-face {
-    font-family: 'Quicksand';
-    src: '../fonts/quicksand-variablefont_wght.woff2' format('woff2-variations');
-    font-weight: 300 700;
+    font-family: 'latoregular';
+    src: url('../fonts/lato-regular-webfont.woff2') format('woff2'),
+         url('../fonts/lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latoblack';
+    src: url('../fonts/lato-black-webfont.woff2') format('woff2'),
+         url('../fonts/lato-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 body {
-    font-family: "Quicksand", Arial, Helvetica, sans-serif;
+    background: #ccc;
+    display: flex;
+    font-family: "latoregular", Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+.main-content {
+    background: #fff;
+    border-radius: 2rem;
+    margin:auto;
+    padding: 1rem;
+    text-align: center;
+}
+
+.portrait {
+    height: 120px;
+    margin:-5rem auto 0 auto;
+    position: relative;
+    width:120px;
+}
+
+.portrait:before {
+    background: #333;
+    border-radius: 50%;
+    bottom:0;
+    content: "";
+    display: block;
+    height: 100px;
+    left:10px;
+    position: absolute;
+    width: 100px;
+    z-index: 0;
+}
+
+.portrait img {
+    height:auto;
+    max-width: 100%;
+    position: relative;
+    z-index:2;
+}
+
+.h1 {
+    font-family: "latoblack", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+.main-nav ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+
+.main-nav li {
+    display: inline-block;
 }
