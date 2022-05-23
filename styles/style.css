@@ -1,74 +1,191 @@
 @font-face {
-    font-family: 'latoregular';
-    src: url('../fonts/lato-regular-webfont.woff2') format('woff2'),
-         url('../fonts/lato-regular-webfont.woff') format('woff');
+    font-family: 'robotoblack';
+    src: url('../fonts/roboto-black-webfont.woff2') format('woff2'),
+        url('../fonts/roboto-black-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
-    font-family: 'latoblack';
-    src: url('../fonts/lato-black-webfont.woff2') format('woff2'),
-         url('../fonts/lato-black-webfont.woff') format('woff');
+    font-family: 'robotobold';
+    src: url('../fonts/roboto-bold-webfont.woff2') format('woff2'),
+        url('../fonts/roboto-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
+@font-face {
+    font-family: 'robotolight';
+    src: url('../fonts/roboto-light-webfont.woff2') format('woff2'),
+        url('../fonts/roboto-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotomedium';
+    src: url('../fonts/roboto-medium-webfont.woff2') format('woff2'),
+        url('../fonts/roboto-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../fonts/roboto-regular-webfont.woff2') format('woff2'),
+        url('../fonts/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotothin';
+    src: url('../fonts/roboto-thin-webfont.woff2') format('woff2'),
+        url('../fonts/roboto-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --base-color: 0;
+    --base-saturation :0%;
+    --main-bg-color: hsl(var(--base-color), var(--base-saturation), 80%);
+    --content-bg-color: hsl(var(--base-color), var(--base-saturation), 100%);
+    --border-color: hsl(var(--base-color), var(--base-saturation), 70%);
+    --text-color: hsl(var(--base-color), var(--base-saturation), 20%);
+    --fonts-stack-base: "robotoregular", Arial, Helvetica, sans-serif;
+    --fonts-stack-heading: "robotolight", Arial, Helvetica, sans-serif;
+}
+
+/* typo */
+.h1 {
+    color: var(--text-color);
+    font-family: var(--fonts-stack-heading);
+    font-size: 6rem;
+    letter-spacing: -.015625em;
+}
+
+.h2 {
+    color: var(--text-color);
+    font-family: var(--fonts-stack-heading);
+    font-size: 3.75rem;
+    letter-spacing: -.0083333em;
+}
+
+.h3 {
+    color: var(--text-color);
+    font-family: var(--fonts-stack-base);
+    font-size: 3rem;
+}
+
+.text-1 {
+    color: var(--text-color);
+    font-family: var(--fonts-stack-base);
+    font-size: 1rem;
+    letter-spacing: -.03125em;
+}
+
+.caption {
+    color: var(--text-color);
+    font-family: var(--fonts-stack-base);
+    font-size: 0.75rem;
+    letter-spacing: -.03333em;
+}
+
+/* content */
 body {
-    background: #ccc;
+    background: var(--main-bg-color) url('../images/yokohama.jpg');
+    background-position: center center;
+    background-size: cover;
     display: flex;
-    font-family: "latoregular", Arial, Helvetica, sans-serif;
+    font-family: var(--fonts-stack-base);
     min-height: 100vh;
 }
 
 .main-content {
-    background: #fff;
-    border-radius: 2rem;
-    margin:auto;
-    padding: 1rem;
+    background: var(--content-bg-color);
+    border-radius: 4px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    margin: auto;
+    max-width: 96%;
     text-align: center;
+    width:520px;
+}
+
+.main-content>*:not(.main-nav, .portrait) {
+    margin: 16px;
 }
 
 .portrait {
     height: 120px;
-    margin:-5rem auto 0 auto;
+    margin: -60px auto 0 auto;
     position: relative;
-    width:120px;
+    width: 120px;
 }
 
 .portrait:before {
-    background: #333;
+    background: var(--text-color);
     border-radius: 50%;
-    bottom:0;
+    bottom: 0;
     content: "";
     display: block;
     height: 100px;
-    left:10px;
+    left: 10px;
     position: absolute;
     width: 100px;
     z-index: 0;
 }
 
 .portrait img {
-    height:auto;
+    height: auto;
     max-width: 100%;
     position: relative;
-    z-index:2;
+    z-index: 2;
 }
 
-.h1 {
-    font-family: "latoblack", Arial, Helvetica, sans-serif;
-    font-weight: 400;
+.main-nav {
+    border-top: 1px solid var(--border-color);
+    padding: 1rem;
 }
 
 .main-nav ul {
+    display: flex;
+    justify-content: space-evenly;
     list-style-type: none;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
-.main-nav li {
-    display: inline-block;
+.main-nav a {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.main-nav a:before {
+    background-color: var(--main-bg-color);
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height:40px;
+    width:40px;
+}
+
+.main-nav .website-icon:before {
+    background-image: url('../images/home.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.main-nav .linkedin-icon:before {
+    background-image: url('../images/LinkedIn_Logo.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.main-nav .github-icon:before {
+    background-image: url('../images/GitHub-Mark.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
 }
