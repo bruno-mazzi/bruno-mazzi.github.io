@@ -27,13 +27,32 @@
     --fonts-stack-heading: "robotolight", Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --main-bg-color:  	hsl(220, 26%, 14%);
-        --content-bg-color: hsl(216, 23%, 23%);
-        --border-color:  	hsl(218, 17%, 35%);
-        --text-color: hsl(var(--base-color), var(--base-saturation), 100%);
-    }
+/* utilities */
+/* sr-only by ffoodd : https://gist.github.com/ffoodd/000b59f431e3e64e4ce1a24d5bb36034 */
+.sr-only {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+	-webkit-clip-path: inset(50%) !important;
+		clip-path: inset(50%) !important;
+	height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	white-space: nowrap !important;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+	clip: auto !important;
+	-webkit-clip-path: none !important;
+		clip-path: none !important;
+	height: auto !important;
+	margin: auto !important;
+	overflow: visible !important;
+	width: auto !important;
+	white-space: normal !important;
 }
 
 /* typo */
@@ -71,12 +90,41 @@
     letter-spacing: -.03333em;
 }
 
-/* general */
+/* body */
 body {
+    font-family: var(--fonts-stack-base);
+}
+
+body:before {
     background: var(--main-bg-color) url('../images/yokohama.webp');
     background-position: center center;
     background-size: cover;
-    font-family: var(--fonts-stack-base);
+    bottom:0;
+    content:"";
+    left:0;
+    position: absolute;
+    right:0;
+    top:0;
+}
+
+body > * {
+    position: relative;
+    z-index:1;
+}
+
+body.dark-mode {
+    --main-bg-color:  	hsl(220, 26%, 14%);
+    --content-bg-color: hsl(216, 23%, 23%);
+    --border-color:  	hsl(218, 17%, 35%);
+    --text-color: hsl(var(--base-color), var(--base-saturation), 100%);
+}
+
+body.dark-mode:before {
+    filter: brightness(.8) contrast(1.2);
+}
+
+body.dark-mode .portrait:before, body.dark-mode .main-nav a::before {
+    background-color: var(--border-color);
 }
 
 /* header */
@@ -95,6 +143,14 @@ body {
 
 .pseudo-header li {
     display: inline-block;
+}
+
+.btn-toggle {
+    display:none;
+}
+
+.show-btn {
+    display:block;
 }
 
 /* content */
@@ -189,4 +245,29 @@ body {
     background-image: url('../images/GitHub-Mark.svg');
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-bg-color:  	hsl(220, 26%, 14%);
+        --content-bg-color: hsl(216, 23%, 23%);
+        --border-color:  	hsl(218, 17%, 35%);
+        --text-color: hsl(var(--base-color), var(--base-saturation), 100%);
+    }
+
+    body:before {
+        filter: brightness(.8) contrast(1.2);
+    }
+
+    .portrait:before, .main-nav a::before {
+        background: var(--border-color);
+    }
+
+    body.light-mode {
+        --main-bg-color: hsl(var(--base-color), var(--base-saturation), 80%);
+        --content-bg-color: hsl(var(--base-color), var(--base-saturation), 100%);
+        --border-color: hsl(var(--base-color), var(--base-saturation), 70%);
+        --text-color: hsl(var(--base-color), var(--base-saturation), 20%);
+    }
 }
