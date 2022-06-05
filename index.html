@@ -9,44 +9,42 @@
     <meta name="color-scheme" content="dark light">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/style.css">
-    <script src="js/script.js"></script>
 </head>
 <body>
-    <header role="banner">
-        <div class="pseudo-header">
-              <ul>
-                <li>
-                  <a href="#main" class="sr-only sr-only-focusable text-1" >Aller au contenu</a>
-                </li>
-                <li class="personalize">
-                    <button class="btn-toggle">Mode sombre</button>
-                </li>
-              </ul>
-          </div>  
-    </header>
-    <main role="main" id="main" class="main-content">
-        <div class="card">
-            <div class="portrait">
-                <img src="images/portrait.webp" alt="" width="120" height="120">
+    <div class="wrapper">
+        <header role="banner">
+            <div class="pseudo-header">
+                    <a href="#main" class="sr-only sr-only-focusable text-1 skip-to-content" >Aller au contenu</a>
+              </div>  
+        </header>
+        <main role="main" id="main" class="main-content">
+            <div class="card">
+                <div class="portrait">
+                    <img src="images/portrait.webp" alt="" width="120" height="120">
+                </div>
+                <h1 class="h2">Bruno Mazzi</h1>
+                <p class="description text-1">Intégrateur Web, Lecteur de BD en tous genres et mangeur de Gyozas</p>
+    
+                <nav role="navigation" class="main-nav">
+                    <ul>
+                        <!--
+                            Et oui ,j'ai un site perso mais toujours en construction depuis des années (être son propre client c'est terrible).
+                            Il n'y a pas grand chose à voir, mais le lien ci dessous est valide, libre a vous d'y alller.
+                            <li><a href="https://www.obilabilon.net/" class="caption website-icon">Site web</a></li>
+                        -->
+                        <li><a href="https://www.linkedin.com/in/bruno-mazzi/" class="caption linkedin-icon"><span lang="en">LinkedIn</span></a></li>
+                        <li><a href="https://github.com/bruno-mazzi" class="caption github-icon"><span lang="en">Github</span></a></li>
+                    </ul>
+                </nav>
             </div>
-            <h1 class="h2">Bruno Mazzi</h1>
-            <p class="description text-1">Intégrateur Web, Lecteur de BD en tous genres et mangeur de Gyozas</p>
-
-            <nav role="navigation" class="main-nav">
-                <ul>
-                    <!--
-                        Et oui ,j'ai un site perso mais toujours en construction depuis des années (être son propre client c'est terrible).
-                        Il n'y a pas grand chose à voir, mais le lien ci dessous est valide, libre a vous d'y alller.
-                        <li><a href="https://www.obilabilon.net/" class="caption website-icon">Site web</a></li>
-                    -->
-                    <li><a href="https://www.linkedin.com/in/bruno-mazzi/" class="caption linkedin-icon">LinkedIn</a></li>
-                    <li><a href="https://github.com/bruno-mazzi" class="caption github-icon">Github</a></li>
-                </ul>
-            </nav>
-        </div>
-    </main>
-    <footer>
-        
-    </footer>
+        </main>
+        <footer class="main-footer">
+            <div>
+                <p class="caption">&copy; 2022 | <span aria-hidden="true">Photo de fond : Terminal maritime international - Yokohama</span></p>
+            </div>
+            <button class="false-link caption btn-toggle">Mode sombre</button>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>

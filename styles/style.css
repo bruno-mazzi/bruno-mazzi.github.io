@@ -90,12 +90,82 @@
     letter-spacing: -.03333em;
 }
 
-/* body */
-body {
-    font-family: var(--fonts-stack-base);
+.skip-to-content {
+    color: var(--content-bg-color);
 }
 
-body:before {
+/* btn */
+.btn {
+    background-color: var(--content-bg-color);
+    border:0;
+    border-radius:4px;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+    color: var(--text-color);
+    cursor: pointer;
+    display: block;
+    font-size: .875rem;
+    font-weight: 500;
+    letter-spacing: .0892857143em;
+    padding: 8px 16px;
+    text-decoration:none;
+    text-indent: .0892857143em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.btn:hover {
+    opacity:0.8;
+}
+
+.false-link {
+    background: transparent;
+    border:0;
+    cursor: pointer;
+    margin:0;
+    padding:0;
+    text-decoration: underline;
+}
+
+/* body */
+html {
+    height: -webkit-fill-available;
+}
+
+html, body {
+    font-family: var(--fonts-stack-base);
+    height: 100%;
+    margin:0;
+    padding:0;
+}
+
+body.dark-mode {
+    --main-bg-color:  	hsl(220, 26%, 14%);
+    --content-bg-color: hsl(216, 23%, 23%);
+    --border-color:  	hsl(218, 17%, 35%);
+    --text-color: hsl(var(--base-color), var(--base-saturation), 94%);
+}
+
+body.dark-mode:before {
+    filter: brightness(.8) contrast(1.2);
+}
+
+body.dark-mode .portrait:before, body.dark-mode .main-nav a::before {
+    background-color: var(--border-color);
+}
+
+body.dark-mode .skip-to-content {
+    color: var(--text-color);
+}
+
+/* wrapper */
+.wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 100%;
+}
+
+.wrapper:before {
     background: var(--main-bg-color) url('../images/yokohama.webp');
     background-position: center center;
     background-size: cover;
@@ -107,56 +177,14 @@ body:before {
     top:0;
 }
 
-body > * {
+.wrapper > * {
     position: relative;
-    z-index:1;
-}
-
-body.dark-mode {
-    --main-bg-color:  	hsl(220, 26%, 14%);
-    --content-bg-color: hsl(216, 23%, 23%);
-    --border-color:  	hsl(218, 17%, 35%);
-    --text-color: hsl(var(--base-color), var(--base-saturation), 100%);
-}
-
-body.dark-mode:before {
-    filter: brightness(.8) contrast(1.2);
-}
-
-body.dark-mode .portrait:before, body.dark-mode .main-nav a::before {
-    background-color: var(--border-color);
-}
-
-/* header */
-.pseudo-header {
-    background:var(--content-bg-color);
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-    padding:8px;
-}
-
-.pseudo-header ul {
-    display: flex;
-    justify-content: space-between;
-    margin:0;
-    padding:0;
-}
-
-.pseudo-header li {
-    display: inline-block;
-}
-
-.btn-toggle {
-    display:none;
-}
-
-.show-btn {
-    display:block;
+    z-index: 1;
 }
 
 /* content */
 .main-content {
     display: flex;
-    min-height: 90vh;
 }
 
 .card {
@@ -220,6 +248,10 @@ body.dark-mode .portrait:before, body.dark-mode .main-nav a::before {
     text-decoration: none;
 }
 
+.main-nav a:hover {
+    opacity: 0.8;
+}
+
 .main-nav a:before {
     background-color: var(--main-bg-color);
     border-radius: 50%;
@@ -247,13 +279,30 @@ body.dark-mode .portrait:before, body.dark-mode .main-nav a::before {
     background-repeat: no-repeat;
 }
 
+/* footer */
+.main-footer {
+    background: var(--content-bg-color);
+    display: flex;
+    justify-content:space-between;
+    margin-top:8px;
+    padding:4px 8px;
+}
+
+.btn-toggle {
+    display:none;
+}
+
+.show-btn {
+    display:block;
+}
+
 /* dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
         --main-bg-color:  	hsl(220, 26%, 14%);
         --content-bg-color: hsl(216, 23%, 23%);
         --border-color:  	hsl(218, 17%, 35%);
-        --text-color: hsl(var(--base-color), var(--base-saturation), 100%);
+        --text-color: hsl(var(--base-color), var(--base-saturation), 94%);
     }
 
     body:before {
@@ -262,6 +311,10 @@ body.dark-mode .portrait:before, body.dark-mode .main-nav a::before {
 
     .portrait:before, .main-nav a::before {
         background: var(--border-color);
+    }
+
+    .skip-to-content {
+        color: var(--text-color);
     }
 
     body.light-mode {
