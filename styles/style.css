@@ -145,7 +145,7 @@ body.dark-mode {
     --text-color: hsl(var(--base-color), var(--base-saturation), 94%);
 }
 
-body.dark-mode:before {
+body.dark-mode .wrapper:before {
     filter: brightness(.8) contrast(1.2);
 }
 
@@ -305,7 +305,7 @@ body.dark-mode .skip-to-content {
         --text-color: hsl(var(--base-color), var(--base-saturation), 94%);
     }
 
-    body:before {
+    .wrapper:before {
         filter: brightness(.8) contrast(1.2);
     }
 
